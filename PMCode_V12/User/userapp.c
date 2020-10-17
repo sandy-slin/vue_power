@@ -93,13 +93,16 @@ void PowerOn_normal(void)
 		{
 			if((PowerKeyPressTime > TIMER_HW_PD_FORCE_TRIGGER)&&(PowerKeyPressTime <= TIMER_HW_PD_FORCE))
 			{
+				//falling edge to trigger CM3
 				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_SET);
+				HAL_Delay(100);
+				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
 			}
 			else if(PowerKeyPressTime > TIMER_HW_PD_FORCE)
 			{
 				PowerControl(POWER_DISABLE);
 				HAL_GPIO_WritePin(GPIO_LED_GPIO_Port,GPIO_LED_Pin,GPIO_PIN_SET);
-				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
+				//HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
 				while(!HAL_GPIO_ReadPin(GPIO_KEY_GPIO_Port,GPIO_KEY_Pin));
 			}
 			
@@ -107,7 +110,7 @@ void PowerOn_normal(void)
 			{
 				PowerControl(POWER_DISABLE);
 				HAL_GPIO_WritePin(GPIO_LED_GPIO_Port,GPIO_LED_Pin,GPIO_PIN_SET);
-				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
+				//HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
 			}
 		}
 		/*

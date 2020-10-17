@@ -4,7 +4,7 @@
 #include "main.h"
 
 /* debounce cnt */
-#define TIME_SW_PD         3000  //软关机时间为3000ms
+#define TIME_SW_PD         1000  //软关机时间为3000ms
 #define TIME_HW_PD         1200  //硬件开机时间为1200ms
 #define TIMER_HW_PD_FORCE_TRIGGER  2000  //硬件强制关机预通知时间为2000ms
 #define TIMER_HW_PD_FORCE 5000  //硬件强制关机时间为3000ms
