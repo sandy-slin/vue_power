@@ -96,7 +96,7 @@ void PowerOn_normal(void)
 				//falling edge to trigger CM3
 				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_SET);
 				HAL_Delay(100);
-				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_RESET);
 			}
 			else if(PowerKeyPressTime > TIMER_HW_PD_FORCE)
 			{

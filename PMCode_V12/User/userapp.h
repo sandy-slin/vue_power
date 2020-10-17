@@ -5,7 +5,7 @@
 
 /* debounce cnt */
 #define TIME_SW_PD         1000  //软关机时间为3000ms
-#define TIME_HW_PD         1200  //硬件开机时间为1200ms
+#define TIME_HW_PD         1000  //硬件开机时间为1200ms
 #define TIMER_HW_PD_FORCE_TRIGGER  2000  //硬件强制关机预通知时间为2000ms
 #define TIMER_HW_PD_FORCE 5000  //硬件强制关机时间为3000ms
 
@@ -15,13 +15,6 @@ typedef enum
   POWER_DISABLE = 0U,
   POWER_ENABLE
 } POWER_State;
-
-
-
-
-
-
-
 
 
 void HAL_Delay(uint32_t Delay);//延时函数，单位：ms
