@@ -95,7 +95,7 @@ void PowerOn_normal(void)
 			{
 				HAL_GPIO_WritePin(GPIO_POWER_TRIGGER_GPIO_Port,GPIO_POWER_TRIGGER_Pin,GPIO_PIN_SET);
 			}
-			else if((PowerKeyPressTime > TIMER_HW_PD_FORCE)&&(GPIO_PowerPinStatus == POWER_ENABLE))
+			else if(PowerKeyPressTime > TIMER_HW_PD_FORCE)
 			{
 				PowerControl(POWER_DISABLE);
 				HAL_GPIO_WritePin(GPIO_LED_GPIO_Port,GPIO_LED_Pin,GPIO_PIN_SET);
@@ -103,7 +103,7 @@ void PowerOn_normal(void)
 				while(!HAL_GPIO_ReadPin(GPIO_KEY_GPIO_Port,GPIO_KEY_Pin));
 			}
 			
-			if(SoftKeyPressTime > TIME_SW_PD)
+			if( SoftKeyPressTime > TIME_SW_PD )
 			{
 				PowerControl(POWER_DISABLE);
 				HAL_GPIO_WritePin(GPIO_LED_GPIO_Port,GPIO_LED_Pin,GPIO_PIN_SET);
