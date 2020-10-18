@@ -120,7 +120,7 @@ void PowerOn_normal(void)
 		*/
 		else if(GPIO_PowerPinStatus == POWER_DISABLE)
 		{
-			if(PowerKeyPressTime > TIME_HW_PD)
+			if((PowerKeyPressTime > TIME_HW_PD) && (PowerKeyPressTime < TIME_SW_PD_MAX))
 			{
 				PowerControl(POWER_ENABLE);
 				HAL_GPIO_WritePin(GPIO_LED_GPIO_Port,GPIO_LED_Pin,GPIO_PIN_RESET);
